@@ -9,22 +9,22 @@ export default function Home() {
       <Navbar />
       <section
         id="home"
-        className="flex flex-col gap-y-3 items-center justify-center h-screen mx-auto w-[80%] text-center text-white"
+        className="flex flex-col gap-y-3 items-center justify-center h-screen mx-auto w-[90%] md:w-[80%] text-center text-white"
       >
         <div>
-          <p className="text-5xl leading-14">
+          <p className="text-3xl leading-10 font-semibold md:font-normal md:text-5xl md:leading-14">
             Track Your{" "}
-            <span className="text-6xl font-bold italic text-[#2E416B]">
+            <span className="text-3xl md:text-6xl font-bold md:italic text-[#2E416B]">
               Job Hunt,
             </span>{" "}
             Stay Updated, and Share Your Journey —{" "}
-            <span className="font-bold italic text-[#2E416B]">
+            <span className="font-bold md:italic text-[#2E416B]">
               All in One Place
             </span>
           </p>
         </div>
         <div>
-          <p className="text-xl font-light">
+          <p className="text-base md:text-xl font-light">
             Manage job applications, get timely updates, and log interview
             experiences with ease
           </p>
@@ -40,14 +40,14 @@ export default function Home() {
         className="flex flex-col items-center h-full mx-auto py-3"
       >
         <div className="text-center mb-8">
-          <h2 className="text-4xl font-bold text-[#2E416B]">Features</h2>
-          <p className="text-white">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#2E416B]">Features</h2>
+          <p className="text-white text-sm md:text-base">
             Why Joblog? Everything You Need to Organize Your Job Hunt
           </p>
         </div>
         <div className="flex flex-col gap-y-10 w-[70%] mx-auto text-white">
-          <div className="flex items-center gap-x-4 justify-between bg-[#2E416B] p-8 rounded-xl rounded-tr-[5rem]">
-            <div className="basis-2/3">
+          <div className="flex items-center gap-x-4 justify-between bg-[#2E416B] p-8 rounded-xl md:rounded-tr-[5rem]">
+            <div className="md:basis-2/3 text-center md:text-left">
               <h3 className="text-2xl font-semibold mb-2">
                 Job Application Tracker
               </h3>
@@ -57,7 +57,7 @@ export default function Home() {
                 organized and focused throughout your job hunt.
               </p>
             </div>
-            <div className="basis-1/3">
+            <div className="hidden md:inline md:basis-1/3">
               <Image
                 className="rounded-lg"
                 src="/ss1.png"
@@ -79,8 +79,8 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-x-4 justify-between bg-[#2E416B] p-8 rounded-xl rounded-bl-[5rem]">
-            <div className="basis-1/3">
+          <div className="flex items-center gap-x-4 justify-between bg-[#2E416B] p-8 rounded-xl md:rounded-bl-[5rem]">
+            <div className="md:basis-1/3 hidden md:inline">
               <Image
                 className="rounded-lg"
                 src="/ss2.png"
@@ -89,7 +89,7 @@ export default function Home() {
                 alt="feature-2"
               />
             </div>
-            <div className="basis-2/3 text-right">
+            <div className="text-center md:basis-2/3 md:text-right">
               <h3 className="text-2xl font-semibold mb-2">
                 Interview Experience Logs
               </h3>
@@ -102,11 +102,11 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <footer className="flex flex-col items-center py-6">
+      <footer id="contact" className="flex flex-col items-center py-6">
         <h3 className="font-semibold text-white">
           Built and maintained by Vignesh
         </h3>
-        <h4 className="text-lg">
+        <h4 className="text-base font-semibold md:text-lg">
           Connect with me in{" "}
           <Link
             className="italic underline"
