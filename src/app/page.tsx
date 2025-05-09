@@ -1,103 +1,128 @@
+import Navbar from "@/components/Navbar";
+import { Button } from "@/components/ui/button";
+import { SignInButton } from "@clerk/nextjs";
+import Link from "next/link";
 import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="bg-[#6A96F7] h-full tracking-tight">
+      <Navbar />
+      <section
+        id="home"
+        className="flex flex-col gap-y-3 items-center justify-center h-screen mx-auto w-[80%] text-center text-white"
+      >
+        <div>
+          <p className="text-5xl leading-14">
+            Track Your{" "}
+            <span className="text-6xl font-bold italic text-[#2E416B]">
+              Job Hunt,
+            </span>{" "}
+            Stay Updated, and Share Your Journey —{" "}
+            <span className="font-bold italic text-[#2E416B]">
+              All in One Place
+            </span>
+          </p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        <div>
+          <p className="text-xl font-light">
+            Manage job applications, get timely updates, and log interview
+            experiences with ease
+          </p>
+        </div>
+        <div>
+          <SignInButton>
+            <Button className="bg-[#2E416B]">Login to get Started</Button>
+          </SignInButton>
+        </div>
+      </section>
+      <section
+        id="features"
+        className="flex flex-col items-center h-full mx-auto py-3"
+      >
+        <div className="text-center mb-8">
+          <h2 className="text-4xl font-bold text-[#2E416B]">Features</h2>
+          <p className="text-white">
+            Why Joblog? Everything You Need to Organize Your Job Hunt
+          </p>
+        </div>
+        <div className="flex flex-col gap-y-10 w-[70%] mx-auto text-white">
+          <div className="flex items-center gap-x-4 justify-between bg-[#2E416B] p-8 rounded-xl rounded-tr-[5rem]">
+            <div className="basis-2/3">
+              <h3 className="text-2xl font-semibold mb-2">
+                Job Application Tracker
+              </h3>
+              <p>
+                Easily log every job you’ve applied to and update the status as
+                you progress from Applied to Interviewed to Rejected. Stay
+                organized and focused throughout your job hunt.
+              </p>
+            </div>
+            <div className="basis-1/3">
+              <Image
+                className="rounded-lg"
+                src="/ss1.png"
+                width={300}
+                height={300}
+                alt="feature-1"
+              />
+            </div>
+          </div>
+          <div className="flex items-center gap-x-4 justify-between bg-[#2E416B] p-8 rounded-xl text-center">
+            <div>
+              <h3 className="text-2xl font-semibold mb-2">
+                Bi-weekly Email Updates
+              </h3>
+              <p>
+                Receive a summary of your job applications and their statuses
+                right in your inbox every two weeks. A simple way to stay
+                informed and never lose track.
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-x-4 justify-between bg-[#2E416B] p-8 rounded-xl rounded-bl-[5rem]">
+            <div className="basis-1/3">
+              <Image
+                className="rounded-lg"
+                src="/ss2.png"
+                width={300}
+                height={300}
+                alt="feature-2"
+              />
+            </div>
+            <div className="basis-2/3 text-right">
+              <h3 className="text-2xl font-semibold mb-2">
+                Interview Experience Logs
+              </h3>
+              <p>
+                Document your interview experiences with each job. Reflect on
+                what went well, what to improve, and help yourself prepare
+                better for the next opportunity.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer className="flex flex-col items-center py-6">
+        <h3 className="font-semibold text-white">
+          Built and maintained by Vignesh
+        </h3>
+        <h4 className="text-lg">
+          Connect with me in{" "}
+          <Link
+            className="italic underline"
+            href="https://github.com/Vignesh2131"
+          >
+            Github
+          </Link>{" "}
+          or{" "}
+          <Link
+            className="italic underline"
+            href="https://x.com/automatedlife21"
+          >
+            X
+          </Link>{" "}
+        </h4>
       </footer>
-    </div>
+    </main>
   );
 }
