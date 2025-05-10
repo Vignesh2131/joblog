@@ -1,5 +1,5 @@
 "use client"
-import { SignedOut, SignInButton } from "@clerk/nextjs"
+import { SignedOut, SignInButton, UserButton } from "@clerk/nextjs"
 import { Menu,CircleXIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState } from "react";
@@ -32,6 +32,7 @@ const Navbar = () => {
           </SignInButton>
               </SignedOut>
               {active?<CircleXIcon className="md:hidden" onClick={()=>setActive(false)}/>:<Menu className="md:hidden" onClick={()=>setActive(true)}/>}
+      <UserButton/>
       </div>
     </nav>
   );
