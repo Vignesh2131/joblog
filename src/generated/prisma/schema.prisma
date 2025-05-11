@@ -30,9 +30,9 @@ model Job {
   companyName   String
   appliedSource String
   status        String
-  Notes         String
+  Notes         String?
   Salary        String?
-  userId        String  @unique
+  userId        String
   user          User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
@@ -47,7 +47,7 @@ model Experience {
   dateOfInterview DateTime @default(now())
   summary         String
   takeaways       String
-  userId          String   @unique
+  userId          String
   user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])

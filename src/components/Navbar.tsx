@@ -1,9 +1,10 @@
 "use client"
-import { SignedOut, SignInButton, UserButton } from "@clerk/nextjs"
+import { SignedOut, SignInButton, UserButton, SignedIn } from "@clerk/nextjs"
 import { Menu,CircleXIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState } from "react";
 import Link from "next/link";
+import { ThemeToggler } from "./ThemeToggler";
 const Navbar = () => {
     const [active, setActive] = useState(false);
   return (
@@ -30,9 +31,13 @@ const Navbar = () => {
           <SignInButton>
             <Button className="bg-[#2E416B] font-light">Sign in</Button>
           </SignInButton>
-              </SignedOut>
+        </SignedOut>
+        <SignedIn>
+          <Button><Link href="/portal">Portal</Link></Button>
+        </SignedIn>
               {active?<CircleXIcon className="md:hidden" onClick={()=>setActive(false)}/>:<Menu className="md:hidden" onClick={()=>setActive(true)}/>}
-      <UserButton/>
+        <UserButton />
+        <ThemeToggler/>
       </div>
     </nav>
   );

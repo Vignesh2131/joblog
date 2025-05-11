@@ -2,9 +2,15 @@
 import JobCard from "@/components/JobCard";
 import prisma from "@/lib/prisma";
 import { JobModal } from "@/components/JobModal";
+const jobs = [{
+  jobTitle: "Software Engineer",
+  companyName: "Flipkart",
+  appliedSource: "Company's Website",
+  status: "Applied",
+  id:1
+}]
 const PortalPage = async () => {
-    const jobs = await prisma.job.findMany()
-    console.log(jobs)
+   
   return (
     <main className="px-12 py-8">
       <header
