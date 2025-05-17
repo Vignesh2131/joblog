@@ -1,16 +1,17 @@
-
+import { auth } from "@clerk/nextjs/server";
 import JobCard from "@/components/JobCard";
 import prisma from "@/lib/prisma";
 import { JobModal } from "@/components/JobModal";
-const jobs = [{
-  jobTitle: "Software Engineer",
-  companyName: "Flipkart",
-  appliedSource: "Company's Website",
-  status: "Applied",
-  id:1
-}]
 const PortalPage = async () => {
-   
+  const { userId } = await auth();
+  const userJobs = await prisma.user.findUnique({
+    where: {
+      clerkId: userId || "",
+    },
+    select: {
+      Jobs: true,
+    },
+  });
   return (
     <main className="px-12 py-8">
       <header
@@ -24,13 +25,13 @@ const PortalPage = async () => {
           <p>Statuses at a glance</p>
         </div>
         <div>
-          <JobModal dialogLabel="+ Add new Job"/>
+          <JobModal dialogLabel="+ Add new Job" postType="add"/>
         </div>
       </header>
           <section id="portal-listings" className="grid grid-cols-3 gap-6">
-              {jobs && jobs.map((job) => {
+              {userJobs?.Jobs && userJobs.Jobs.map((job) => {
                   return (
-                      <JobCard jobTitle={job.jobTitle} companyName={job.companyName} appliedSource={job.appliedSource} notes="" status={job.status} key={job.id}/>
+                      <JobCard jobTitle={job.jobTitle} salary={job.Salary||""} id={job.id} companyName={job.companyName} appliedSource={job.appliedSource} notes={job.Notes||""} status={job.status} key={job.id}/>
                   );
               })}
         

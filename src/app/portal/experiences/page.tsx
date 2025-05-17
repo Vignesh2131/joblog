@@ -12,7 +12,6 @@ const ExperiencesPage = async () => {
       Experiences: true
     }
   });
-  console.log(userExperiences);
   return (
     <main className="px-12 py-8">
       <header

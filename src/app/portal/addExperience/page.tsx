@@ -50,7 +50,11 @@ const AddExperience = () => {
      });
     
   async function onSubmit(values:z.infer<typeof experienceSchema>) {
-    addExperienceAction(values)
+    addExperienceAction({ 
+      ...values, 
+      dateOfInterview: values.dateOfInterview.toISOString(),
+      takeaways: values.takeaways || "" 
+    })
     form.reset();
   }
   return (

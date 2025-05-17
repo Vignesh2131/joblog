@@ -1,3 +1,4 @@
+"use client"
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -8,29 +9,55 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "./ui/button";
-type CardProps = {
-    jobTitle: string,
-    companyName: string,
-    appliedSource: string,
-    status: string,
-    notes:string,
-}
+import { CircleX, PenLine } from "lucide-react";
+import { deleteJob } from "@/actions/jobActions";
+import { JobModal } from "./JobModal";
+import { jobCardProps as CardProps } from "@/lib/types";
+const JobCard = ({ jobTitle, companyName, appliedSource, status, notes, id,salary }: CardProps) => {
+  async function onSubmit(id:string) {
+    deleteJob(id)
+  }
 
-const JobCard = ({jobTitle,companyName,appliedSource,status,notes}:CardProps) => {
   return (
-    <Card>
+    <Card className="flex flex-col justify-between">
       <CardHeader className="flex items-center justify-between">
         <div>
           <CardTitle>{jobTitle}</CardTitle>
           <CardDescription>{companyName}</CardDescription>
-                  <CardDescription>{appliedSource}</CardDescription>
+          <CardDescription>{appliedSource}</CardDescription>
         </div>
         <div>
-                  <CardDescription><Badge>{status}</Badge></CardDescription>
+          <CardDescription>
+            <Badge>
+              {status}
+              <PenLine />
+            </Badge>
+          </CardDescription>
         </div>
       </CardHeader>
-      <CardFooter className="w-full">
-        <Button>+ Add notes</Button>
+      {(notes !== "" || salary !== "") && (
+        <CardContent className="flex items-center justify-between">
+          {notes !== "" && (
+            <p className="text-sm font-semibold">
+              Notes : <span className="font-normal">{notes}</span>
+            </p>
+          )}
+        </CardContent>
+      )}
+      <CardFooter className="w-full flex justify-between items-center">
+        <JobModal
+          dialogLabel={"Edit Details"}
+          jobTitle={jobTitle}
+          companyName={companyName}
+          appliedSource={appliedSource}
+          status={status}
+          Notes={notes}
+          id={id}
+          postType="post"
+        />
+        <Button onClick={() => onSubmit(id)}>
+          <CircleX />
+        </Button>
       </CardFooter>
     </Card>
   );
