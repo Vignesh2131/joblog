@@ -13,13 +13,13 @@ const ExperiencesPage = async () => {
     }
   });
   return (
-    <main className="px-12 py-8">
+    <main className="md:px-6 px-12 py-8">
       <header
-        className="flex items-center justify-between mb-6"
+        className="flex flex-col md:flex-row items-center justify-between mb-6"
         id="portal-header"
       >
-        <div className="">
-          <h2 className="text-3xl font-bold">
+        <div className="flex flex-col items-center md:items-start mb-2">
+          <h2 className="text-xl md:text-3xl font-bold mb-2">
             Your Stories, <span className="text-[#008335]">Your Growth</span>
           </h2>
           <p>Past interviews, all in one place</p>
@@ -30,7 +30,7 @@ const ExperiencesPage = async () => {
           </Button>
         </div>
       </header>
-      <section className="grid grid-cols-2  gap-6">
+      <section className="md:grid md:grid-cols-2  space-x-6 space-y-6">
         {userExperiences?.Experiences?.map((experience) => (
           <ExperienceCard
             key={experience.id}

@@ -20,7 +20,7 @@ export default async function createJobEntry(values: FormData) {
           },
         });
         if (!user) {
-           console.log("user not found")
+           throw new Error("User not found")
         }
         const entry = await prisma.job.create({
           data: {

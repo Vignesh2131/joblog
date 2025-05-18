@@ -13,13 +13,13 @@ const PortalPage = async () => {
     },
   });
   return (
-    <main className="px-12 py-8">
+    <main className="px-6 md:px-12 py-8">
       <header
         className="flex items-center justify-between mb-6"
         id="portal-header"
       >
         <div className="">
-          <h2 className="text-3xl font-bold">
+          <h2 className="text-xl md:text-3xl font-bold">
             Your <span className="text-[#6A96F7]">Job Applications</span>
           </h2>
           <p>Statuses at a glance</p>
@@ -28,7 +28,7 @@ const PortalPage = async () => {
           <JobModal dialogLabel="+ Add new Job" postType="add"/>
         </div>
       </header>
-          <section id="portal-listings" className="grid grid-cols-3 gap-6">
+          <section id="portal-listings" className="md:grid md:grid-cols-3 md:gap-6 space-y-6">
               {userJobs?.Jobs && userJobs.Jobs.map((job) => {
                   return (
                       <JobCard jobTitle={job.jobTitle} salary={job.Salary||""} id={job.id} companyName={job.companyName} appliedSource={job.appliedSource} notes={job.Notes||""} status={job.status} key={job.id}/>

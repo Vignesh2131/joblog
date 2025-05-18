@@ -13,10 +13,10 @@ const ExperienceInfo = async ({ params }: { params: Promise<{ experience: string
         : "N/A";
     console.log(experienceDetails)
   return (
-    <main className="px-12 py-8 space-y-6">
-      <div id="info" className="flex justify-between items-center">
+    <main className="px-6 md:px-12 py-8 space-y-6">
+      <div id="info" className="flex md:flex-row flex-col justify-between items-center">
         <div>
-          <h2 className="text-[#6A96F7] text-3xl font-semibold">
+          <h2 className="text-[#6A96F7] text-xl md:text-3xl font-semibold">
             Interview Experience{" "}
             <span className="text-white">
               at {experienceDetails?.companyName}
